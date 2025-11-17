@@ -31,7 +31,7 @@ class FirstScreen extends State<StatefulWidget> {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/': (context) => SecondScreen()
+        '/second': (context) => SecondScreen()
       },
       home: Scaffold(
         backgroundColor: Colors.blue[100],
@@ -110,7 +110,7 @@ class FirstScreen extends State<StatefulWidget> {
                           if(isYellow){coloresElegidos.add("Amarillo");}
                           if(isBlue){coloresElegidos.add("Azul");}
                           if(isRed){coloresElegidos.add("Rojo");}
-                          Navigator.pushNamed(context, '/', arguments: coloresElegidos);
+                          Navigator.pushNamed(context, '/second', arguments: coloresElegidos);
                         }, 
                         child: Text("Go"))
                   ],
