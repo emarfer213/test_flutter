@@ -30,10 +30,12 @@ class FirstScreen extends StatelessWidget {
 
   ListView listaPares() {
     return ListView.builder(
-      itemCount: 100,
+      itemCount: 201,
         itemBuilder: (context, index) {
       return Container(
         child: index % 2 == 0 ? Text("Elemento $index") : null,
+        height: index % 2 == 0 ? 20 : 5,
+        color: index % 2 == 0 ? Colors.grey : Colors.blue,
       );
     });
   }
