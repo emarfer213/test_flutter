@@ -40,6 +40,7 @@ class Campo extends StatefulWidget {
 class _CampoState extends State<Campo> {
   int? _selectedIndex;
   bool _isRightToLeft = false;
+  bool _isLeftToRight = false;
   double _initialDx = 0.0;
   double _lastDx = 0.0;
 
@@ -57,11 +58,16 @@ class _CampoState extends State<Campo> {
             onHorizontalDragUpdate: (details) {
               _lastDx = details.localPosition.dx;
               _isRightToLeft = details.delta.dx < 0;
+              _isLeftToRight = details.delta.dx > 0;
             },
             onHorizontalDragEnd: (details) {
               double distance = (_initialDx - _lastDx).abs();
 
-              if (_isRightToLeft && distance > 100) {
+              if (_isRightToLeft && distance > 100 ) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              } else if (_isLeftToRight && distance > -100){
                 setState(() {
                   _selectedIndex = index;
                 });
